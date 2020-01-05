@@ -1,4 +1,11 @@
-# website
-Demo for my website
+# bash-scripting
+Bash-scripting repository
 
-This is a preview of my official website made in HTML, CSS, Javascript (jquery) and PHP
+This repository represents my configuration for Unix-Like (or Linux) systems through the execution of bash scripts.
+
+```sh
+$ git clone "https://github.com/vscalcione/bash-scripting.git"
+$ cd bash-scripting
+$ sudo chmod +x ${scriptFileName}.sh
+$ /.${scriptFileName}.sh
+```

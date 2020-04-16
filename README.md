@@ -15,3 +15,15 @@ $ /.${scriptFileName}.sh
 ##
 In this repository you can see a script for unlock linux-system when you try to update system for few times generating
 an error on front-end block, and an automate installation script for installation of all necessary software
+
+## Bash Shortcuts and simply commands
+
+| Bash command                                |  Description                                                       |
+|---------------------------------------------|:------------------------------------------------------------------:|
+| ```$ sudo apt update && sudo apt upgrade``` | update/upgrade your system                                         |
+| ```$ sudo apt install ${packageName}```     | install a package                                                  | 
+| ```$ sudo chmod +x ${fileName}.sh```        | allow permission of all files for executing <br> with admin rights |
+| ```$ sudo chmod +777 ${fileName}.sh```      | allow permissiono of this file for executing with admin rights     |
+| ```$ mkdir/rm folderName```                 | create and remove a directory                                      |
+| ```$ touch fileName.extension```            | create a file with exestions defined in file                       |
+| ```ctrl + r, ctrl + a, ctrl + e```          | reversed search, put start lined, put end line                     |

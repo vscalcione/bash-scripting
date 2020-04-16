@@ -3,7 +3,7 @@ Bash-scripting repository
 
 This repository represents my configuration for Unix-Like (or Linux) systems through the execution of bash scripts.
 
-![bash_image](https://www.worxs.net/wp-content/uploads/2017/10/Bash-Final.jpg)
+![](https://img.icons8.com/cute-clipart/64/000000/console.png)
 
 ```sh
 $ git clone "https://github.com/vscalcione/bash-scripting.git"

@@ -20,10 +20,10 @@ an error on front-end block, and an automate installation script for installatio
 
 | Bash command                                |  Description                                                       |
 |---------------------------------------------|:------------------------------------------------------------------:|
-| ```$ sudo apt update && sudo apt upgrade``` | update/upgrade your system                                         |
-| ```$ sudo apt install ${packageName}```     | install a package                                                  | 
-| ```$ sudo chmod +x ${fileName}.sh```        | allow permission of all files for executing <br> with admin rights |
-| ```$ sudo chmod +777 ${fileName}.sh```      | allow permissiono of this file for executing with admin rights     |
-| ```$ mkdir/rm folderName```                 | create and remove a directory                                      |
-| ```$ touch fileName.extension```            | create a file with exestions defined in file                       |
-| ```ctrl + r, ctrl + a, ctrl + e```          | reversed search, put start lined, put end line                     |
+| ```$ pwd```                                 | Print working directory                                            |
+| ```$ cd```                                  | Change directory                                                   |
+| ```$ touch foo.txt```                       | Create a file named foo.txt                                        |
+| ```$ nano foo.txt```                        | Edit a file named foo.txt                                          |
+| ```$ cat foo.txt```                         | Print a file named foo.txt                                         |
+| ```$ tac foo.txt```                         | Print a file named foo.txt in reverse mode                         |
+| ```$ {command} --help```                    | Show help for typed's command                                      |

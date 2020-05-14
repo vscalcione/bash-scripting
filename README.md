@@ -30,4 +30,4 @@ an error on front-end block, and an automate installation script for installatio
 
 
 ## Linux Bash Terminal Commands
-Read the file [linux-bash-terminal-commands.txt](linux-bash-terminal-commands.txt) for a complete dive with all the commands used during the course
+Read the file [linux-bash-terminal-commands](linux-bash-terminal-commands.md) for a complete dive with all the commands used during the course

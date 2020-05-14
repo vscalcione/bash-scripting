@@ -1,52 +1,51 @@
 ## Linux Bash Terminal Commands
-
-```$ pwd```                                             <b>Print working directory</b><br>
-```$ cd /{destination_folder}```                        <b>Change directory</b><br>
-```$ cd```                                              <b>Go to root's directory</b><br>
-```$ cd ..```                                           <b>Go back one directory</b><br>
-```$ ls```	                                            <b>List of all folders and files</b><br>
-```$ touch foo.txt```                                   <b>Create a file named foo.txt</b><br>
-```$ nano foo.txt```                                    <b>Edit a file named foo.txt</b><br>
-```$ cat foo.txt```					                            <b>Print a file named foo.txt</b><br>
-```$ tac foo.txt```					                            <b>Print a file named foo.txt in reverse mode</b><br>
-```$ {command} --help```			                          <b>Show help for the typed command</b><br>
-```$ cat foo.txt | more```			                        <b>Print a visible text on video and with pressing 'enter' the
-                                                        user can see more text of this file</b><br>
-```$ cat -n foo.txt```				                          <b>Print a file named foo.txt with number lines</b><br>
-```$ cat foo.txt > bar.txt```			                      <b>Print an overwrited file (overwrite the content of the 2nd file                                                           with the content of the 1st file)</b><br>
-```$ cat > foobar.txt```				                        <b>The user can type the content that will be showed into this file                                                           with the command $ cat fileName.txt</b><br>
-```$ cat foo.txt >> bar.txt```		                      <b>Print into bar.txt 2 times the content of foo.txt</b><br>
-```$ cat foo.txt | sort > bar.txt```	                  <b>Print into bar.txt the foo.txt's sorted content</b><br>
-```$ mkdir foo-folder```			                          <b>Make a directory named foo-folder</b><br>
-```$ rmdir foo-folder```			                          <b>Remove an empty directory named foo-folder</b><br>
-```$ rmdir -rf foo-folder```					                  <b>Remove recursively a directory named foo-folder and all files that                                                         contains</b><br>
-```$ cp foo.txt /folder```	                            <b>Copy a file named foo.txt into destinationFolder</b><br>
-```$ mv -rf foo.txt bar.txt /folder```		              <b>Move in recursively mode foo.txt and bar.txt into a folder</b><br>
-```$ cat foo.txt | less```				                      <b>Print a file with less operator (siimilar to more)</b><br>
-```$ touch -c foobar.txt```				                      <b>Create a file with the operator -c  (no-create)</b><br>
-```$ clear```							                              <b>Clear screen</b><br>
-```$ touch {A..Z}{1..100}.txt```			                  <b>Create txt files named with Alphabetic Order (A to Z)</b><br>
-```$ rm *``` 							                              <b>Remove all files and folders</b><br>
-```$ sudo su```							                            <b>Obtain admin rights</b><br>
-```$ sudo apt-get install {packageName}```		          <b>Install a package with admin rights</b><br>
-```$ sudo apt-get update && sudo apt-get upgrade```	    <b>Update and upgrade your system with admin rights</b><br>
-```$ sudo apt-get remove {packageName}```				        <b>Remove a package with admin rights</b><br>
-```$ top```								                              <b>Get a system monitor on terminal</b><br>
-```$ kill```					                                  <b>Kill a process</b><br>
-```$ kill -9 {PID}```					                          <b>Kill a process with this PID</b><br>
-```$ killall -9 {PID}```						                    <b>Kill all processes of PID</b><br>
-```$ sudo apt --fix-broken install```				            <b>Fixing broken install of a package</b><br>
-```$ echo {message}```				                          <b>Print a message</b><br>
-```$ echo {message} > foo.txt```					              <b>Print the message into foo.txt</b><br>
-```$ cat /proc/interrupts```							              <b>Print all interrupts of CPU's operations</b>
-```$ cat /proc/ioports && cat /proc/dma```		          <b>Print a sequence of all components that CPU use for data          
-                                                        transmission</b><br>
-```$ lspci```						                                <b>List of all PCI's devices mounted on this machine</b><br>
-```$ lspci -t```							                          <b>List of all PCI's devieces mounted on this machine with tree's                                                             view</b><br>
-```$ ls -l /dev/sd{a..z}```				   	                  <b>List of all storage devices mounted on this machine</b><br>
-```$ lsmod```								                            <b>List of all devices and drives mounted on this machine</b><br>
-```$ lsmod | grep pcs*```							                  <b>Get a filtered list of all devices that named "pcs*"</b><br>
-```$ sudo rm mod deviceName```						              <b>Delete a device and its drivers from this machine</b><br>
-```$ sudo dpkg -i {packageName}.deb``` 					        <b>Install deb file</b><br>
+```$ pwd```                                             Print working directory<br>
+```$ cd /{destination_folder}```                        Change directory<br>
+```$ cd```                                              Go to root's directory<br>
+```$ cd ..```                                           Go back one directory<br>
+```$ ls```	                                            List of all folders and files<br>
+```$ touch foo.txt```                                   Create a file named foo.txt<br>
+```$ nano foo.txt```                                    Edit a file named foo.txt<br>
+```$ cat foo.txt```					                            Print a file named foo.txt<br>
+```$ tac foo.txt```					                            Print a file named foo.txt in reverse mode<br>
+```$ {command} --help```			                          Show help for the typed command</b><br>
+```$ cat foo.txt | more```			                        Print a visible text on video and with pressing 'enter' the
+                                                        user can see more text of this file<br>
+```$ cat -n foo.txt```				                          Print a file named foo.txt with number lines<br>
+```$ cat foo.txt > bar.txt```			                      Print an overwrited file (overwrite the content of the 2nd file                                                               with the content of the 1st file)<br>
+```$ cat > foobar.txt```				                        The user can type the content that will be showed into this file                                                             with the command $ cat fileName.txt<br>
+```$ cat foo.txt >> bar.txt```		                      Print into bar.txt 2 times the content of foo.txt<br>
+```$ cat foo.txt | sort > bar.txt```	                  Print into bar.txt the foo.txt's sorted content<br>
+```$ mkdir foo-folder```			                          Make a directory named foo-folder<br>
+```$ rmdir foo-folder```			                          Remove an empty directory named foo-folder<br>
+```$ rmdir -rf foo-folder```					                  Remove recursively a directory named foo-folder and all files that                                                           contains<br>
+```$ cp foo.txt /folder```	                            Copy a file named foo.txt into destinationFolder<br>
+```$ mv -rf foo.txt bar.txt /folder```		              Move in recursively mode foo.txt and bar.txt into a folder<br>
+```$ cat foo.txt | less```				                      Print a file with less operator (siimilar to more)<br>
+```$ touch -c foobar.txt```				                      Create a file with the operator -c  (no-create)<br>
+```$ clear```							                              Clear screen<br>
+```$ touch {A..Z}{1..100}.txt```			                  Create txt files named with Alphabetic Order (A to Z)<br>
+```$ rm *``` 							                              Remove all files and folders<br>
+```$ sudo su```							                            Obtain admin rights<br>
+```$ sudo apt-get install {packageName}```		          Install a package with admin rights<br>
+```$ sudo apt-get update && sudo apt-get upgrade```	    Update and upgrade your system with admin rights<br>
+```$ sudo apt-get remove {packageName}```				        Remove a package with admin rights<br>
+```$ top```								                              Get a system monitor on terminal<br>
+```$ kill```					                                  Kill a process<br>
+```$ kill -9 {PID}```					                          Kill a process with this PID<br>
+```$ killall -9 {PID}```						                    Kill all processes of PID<br>
+```$ sudo apt --fix-broken install```				            Fixing broken install of a package<br>
+```$ echo {message}```				                          Print a message<br>
+```$ echo {message} > foo.txt```					              Print the message into foo.txt<br>
+```$ cat /proc/interrupts```							              Print all interrupts of CPU's operations<br>
+```$ cat /proc/ioports && cat /proc/dma```		          Print a CPUS's components list  components use for data       
+                                                        transmission<br>
+```$ lspci```						                                List of all PCI's devices mounted on this machine<br>
+```$ lspci -t```							                          List of all PCI's devieces mounted on this machine with tree's                                                               view<br>
+```$ ls -l /dev/sd{a..z}```				   	                  List of all storage devices mounted on this machine<br>
+```$ lsmod```								                            List of all devices and drives mounted on this machine<br>
+```$ lsmod | grep pcs*```							                  Get a filtered list of all devices that named "pcs*"<br>
+```$ sudo rm mod deviceName```						              Delete a device and its drivers from this machine<br>
+```$ sudo dpkg -i {packageName}.deb``` 					        Install deb file<br>
 
 

@@ -1,5 +1,17 @@
-$ pwd					Print working directory
-$ cd /destionationFolder		Change directory
-$ cd					Go to root's directory
-$ cd ..					Go back one directory
+Linux command					Description
 
+$ pwd						Print working directory
+$ cd /{destination_folder}			Change directory
+$ cd						Go to root's directory
+$ cd ..						Go back one directory
+$ ls
+
+$ echo {message}
+$ echo {message} > foo.txt
+$ cat /proc/interrupts
+$ cat /proc/ioports && cat /proc/dma
+$ lspci
+$ lspci -t
+$ ls -l /dev/sd{a..z}
+$ sudo rm mod {device_name}
+$ sudo dpkg -i {package_name}.deb

@@ -1,16 +1,14 @@
-Linux command							                    Description
-
-$ pwd								                          Print working directory
-$ cd /{destination_folder}				            Change directory
-$ cd								                          Go to root's directory
-$ cd ..							                          Go back one directory
-$ ls								                          List of all folders and files
-$ touch foo.txt						                    Create a file named foo.txt
-$ nano foo.txt							                  Edit a file named foo.txt
-$ cat foo.txt							                    Print a file named foo.txt
-$ tac foo.txt							                    Print a file named foo.txt in reverse mode
-$ {command} --help						                Show help for the typed command
-$ cat foo.txt | more					                Print a visible text on video and with pressing 'enter' the user can see more      
+$ pwd 					>> Print working directory 
+$ cd /{destination_folder}		>> Change directory
+$ cd					>> Go to root's directory
+$ cd ..				>> Go back one directory
+$ ls					>> List of all folders and files
+$ touch foo.txt			>> Create a file named foo.txt
+$ nano foo.txt				>> Edit a file named foo.txt
+$ cat foo.txt				>> Print a file named foo.txt
+$ tac foo.txt				>> Print a file named foo.txt in reverse mode
+$ {command} --help			>> Show help for the typed command
+$ cat foo.txt | more			>> Print a visible text on video and with pressing 'enter' the user can see more      
                                               text of this file
 $ cat -n foo.txt						                  Print a file named foo.txt with number lines
 $ cat foo.txt > bar.txt					              Print an overwrited file (overwrite the content of the 2nd file with the   
@@ -22,8 +20,8 @@ $ cat foo.txt | sort > bar.txt			          Print into bar.txt the foo.txt's sort
 $ mkdir foo-folder						                Make a directory named foo-folder
 $ rmdir foo-folder						                Remove an empty directory named foo-folder
 $ rmdir -rf foo-folder					              Remove recursively a directory named foo-folder and all files that contains
-$ cp foo.txt /destinationFolder			          Copy a file named foo.txt into destinationFolder
-$ mv -rf foo.txt bar.txt /destinationFolder		Move in recursively mode foo.txt and bar.txt into a folder
+$ cp foo.txt /folder			          Copy a file named foo.txt into destinationFolder
+$ mv -rf foo.txt bar.txt /folder		Move in recursively mode foo.txt and bar.txt into a folder
 $ cat foo.txt | less						              Print a file with less operator (siimilar to more)
 $ touch -c foobar.txt						              Create a file with the operator -c  (no-create)
 $ clear							                          Clear screen

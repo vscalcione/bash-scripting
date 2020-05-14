@@ -1,0 +1,5 @@
+$ pwd					Print working directory
+$ cd /destionationFolder		Change directory
+$ cd					Go to root's directory
+$ cd ..					Go back one directory
+

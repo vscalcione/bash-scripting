@@ -42,7 +42,7 @@
 | ```$ cat /proc/ioports && cat /proc/dma``` | Print a CPU's components list use for data transmission |
 | ```$ lspci``` | List of all PCI's devices mounted on this machine |
 | ```$ lspci -t``` | List of all PCI's devieces mounted on this machine with tree's view |
-| ```$ ls -l /dev/sd{a..z}``` |List of all storage devices mounted on this machine |
+| ```$ ls -l /dev/sd{a..z}``` | List of all storage devices mounted on this machine |
 | ```$ lsmod``` | List of all devices and drives mounted on this machine |
 | ```$ lsmod | grep pcs*``` | Get a filtered list of all devices that named "pcs*" | 
 | ```$ sudo rm mod deviceName``` | Delete a device and its drivers from this machine |

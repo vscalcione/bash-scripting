@@ -1,6 +1,11 @@
 ## Linux Bash Terminal Commands
-```$ pwd```                                             Print working directory<br>
-```$ cd /{destination_folder}```                        Change directory<br>
+| Command | Description |
+| --- | --- |
+| ```$ pwd``` | Print working directory |
+| ```$ cd /{destination_folder}``` | Change directory |
+| ```$ cd ``` | Go to root's directory |
+| ```$ cd ..``` | Go back one directory |
+
 ```$ cd```                                              Go to root's directory<br>
 ```$ cd ..```                                           Go back one directory<br>
 ```$ ls```	                                            List of all folders and files<br>

@@ -38,8 +38,7 @@
 ```$ echo {message}```				                          Print a message<br>
 ```$ echo {message} > foo.txt```					              Print the message into foo.txt<br>
 ```$ cat /proc/interrupts```							              Print all interrupts of CPU's operations<br>
-```$ cat /proc/ioports && cat /proc/dma```		          Print a CPUS's components list  components use for data       
-                                                        transmission<br>
+```$ cat /proc/ioports && cat /proc/dma```		          Print a CPU's components list use for data transmission<br>
 ```$ lspci```						                                List of all PCI's devices mounted on this machine<br>
 ```$ lspci -t```							                          List of all PCI's devieces mounted on this machine with tree's                                                               view<br>
 ```$ ls -l /dev/sd{a..z}```				   	                  List of all storage devices mounted on this machine<br>

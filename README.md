@@ -30,4 +30,9 @@ an error on front-end block, and an automate installation script for installatio
 
 
 ## Linux Bash Terminal Commands
-Read the file [linux-bash-terminal-commands](linux-bash-terminal-commands.md) for a complete dive with all the commands used during the course
+Read the file [linux-bash-terminal-commands](linux-bash-terminal-commands.md) for a complete dive with all the commands used during the courses
+<ul>
+  <li>
+    <b>Linux Bash Shell Terminal Command Basics</b> at https://www.udemy.com/course/linux-terminal-command-basics/
+  </li>
+</ul>

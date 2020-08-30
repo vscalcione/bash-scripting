@@ -10,6 +10,8 @@ UPDATE_AND_UPGRADE_SYSTEM() {
 # Method for installation of all software
 INSTALL_SOFTWARE() {
 	echo $'\nSTEP 2/3: INSTALL SOFTWARE WITH APT'
+	sudo apt install gnome-tweaks
+	sudo apt install fish
 	sudo apt install xterm
 	sudo apt install virtualbox
 	sudo apt install wireshark
@@ -17,7 +19,8 @@ INSTALL_SOFTWARE() {
 	sudo apt install snapd
 #	INSTALL_RABBITVCS
 #	INSTALL_MONGODB
-	echo $'\nAll software installed.\nPackages installed: xterm, virtualbox, wireshark, net-tools, snapd'
+	echo $'\nAll software installed.\nPackages installed: '
+        echo $'1. gnome-tweaks\n2. fish\n3. xterm\n4. virtualbox\n5. wireshark\n6. net-tools\n7. snapd'
 }
 
 INSTALL_SERVLESS_FRAMEWORK() {
@@ -44,8 +47,9 @@ INSTALL_MONGODB() {
 }
 
 DOWNLOAD_SOFTWARES_WGET(){
-	echo 'Google Chrome'
+	echo 'STEP 1: Google Chrome'
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+	sudo dpkg -i google-chrome-stable_current_adm64.deb
 }
 
 UPDATE_AND_UPGRADE_SYSTEM

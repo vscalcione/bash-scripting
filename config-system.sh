@@ -1,29 +1,30 @@
 #!/bin/bash
 
 # Method for update/upgrade of your system
-UPDATE_AND_UPGRADE_SYSTEM(){
-	echo 'STEP 1/3: UPDATE & UPGRADE YOUR SYSTEM' 
-	sudo apt update; 
-	sudo apt upgrade; 
+UPDATE_AND_UPGRADE_SYSTEM() {
+	echo 'STEP 1/3: UPDATE & UPGRADE YOUR SYSTEM'
+	sudo apt update
+	sudo apt upgrade
 }
 
 # Method for installation of all software
-INSTALL_SOFTWARE_APT(){
+INSTALL_SOFTWARE_APT() {
 	echo $'\nSTEP 2/3: INSTALL SOFTWARE WITH APT'
 	sudo apt install xterm
 	sudo apt install virtualbox
 	sudo apt install wireshark
 	sudo apt install net-tools
 	sudo apt install snapd
-	sudo apt
+	INSTALL_RABBITVCS
+	INSTALL_MONGODB
 	echo $'\nAll software installed.\nPackages installed: xterm, virtualbox, wireshark, net-tools, snapd'
 }
 
-INSTALL_SERVLESS_FRAMEWORK(){
+INSTALL_SERVLESS_FRAMEWORK() {
 	curl -o- -L https://ssls.io/install | bash
 }
 
-INSTALL_RABBITVCS(){
+INSTALL_RABBITVCS() {
 	sudo chown -R $USER:$USER ~/.config/rabbitvcs
 	sudo add-apt-repository -r ppa:rabbitvcs/ppa
 	sudo apt update
@@ -32,6 +33,15 @@ INSTALL_RABBITVCS(){
 	sudo apt install git
 }
 
+INSTALL_MONGODB() {
+	wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+	sudo apt install gnupg
+	wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+	sudo touch /etc/apt/sources.list.d/mongodb-org-4.2.list
+	echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+	sudo apt-get update
+	sudo apt-get install -y mongodb-org
+}
 
 UPDATE_AND_UPGRADE_SYSTEM
 INSTALL_SOFTWARE_APT

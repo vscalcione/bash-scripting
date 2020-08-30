@@ -8,15 +8,15 @@ UPDATE_AND_UPGRADE_SYSTEM() {
 }
 
 # Method for installation of all software
-INSTALL_SOFTWARE_APT() {
+INSTALL_SOFTWARE() {
 	echo $'\nSTEP 2/3: INSTALL SOFTWARE WITH APT'
 	sudo apt install xterm
 	sudo apt install virtualbox
 	sudo apt install wireshark
 	sudo apt install net-tools
 	sudo apt install snapd
-	INSTALL_RABBITVCS
-	INSTALL_MONGODB
+#	INSTALL_RABBITVCS
+#	INSTALL_MONGODB
 	echo $'\nAll software installed.\nPackages installed: xterm, virtualbox, wireshark, net-tools, snapd'
 }
 
@@ -43,5 +43,10 @@ INSTALL_MONGODB() {
 	sudo apt-get install -y mongodb-org
 }
 
+DOWNLOAD_SOFTWARES_WGET(){
+	echo 'Google Chrome'
+	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+}
+
 UPDATE_AND_UPGRADE_SYSTEM
-INSTALL_SOFTWARE_APT
+INSTALL_SOFTWARE

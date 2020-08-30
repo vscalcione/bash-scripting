@@ -10,9 +10,21 @@ UPDATE_AND_UPGRADE_SYSTEM() {
 # Method for installation of all software
 INSTALL_SOFTWARE() {
 	echo $'\nSTEP 2/3: INSTALL SOFTWARE WITH APT'
+	sudo apt install audacity
+	sudo apt install brasero
+	sudo apt install cmatrix
+	sudo apt install deepin-terminal
+	sudo apt install idle3
+	sudo apt install vim
+	sudo apt install xterm
+	sudo apt install php
+	sudo apt install python3
+	sudo apt install evolution
+	sudo apt install geary
+	sudo apt install gdebi
+	sudo apt install gimp
 	sudo apt install gnome-tweaks
 	sudo apt install fish
-	sudo apt install xterm
 	sudo apt install virtualbox
 	sudo apt install wireshark
 	sudo apt install net-tools
@@ -20,7 +32,8 @@ INSTALL_SOFTWARE() {
 #	INSTALL_RABBITVCS
 #	INSTALL_MONGODB
 	echo $'\nAll software installed.\nPackages installed: '
-        echo $'1. gnome-tweaks\n2. fish\n3. xterm\n4. virtualbox\n5. wireshark\n6. net-tools\n7. snapd'
+        echo $'1. audacity\n2. brasero\n3. cmatrix\n4. deepin-terminal\n5. idle3\n4. vim\n5. xterm\n6. php\n7. php\n8. evolution\n9. geary\n10. gdebi'
+	echo $'11. gimp\n12. gnome-tweaks\n13. fish\n14. virtualbox\n15. wireshark\n16. net-tools\n17. snapd'
 }
 
 INSTALL_RABBITVCS() {
@@ -60,13 +73,8 @@ DOWNLOAD_SOFTWARES_WGET(){
 
 	echo 'STEP 5: .NET Core SDK, ASP.NET Core Runtime, .NET Core Runtime'
 	sudo apt update
-	sudo apt install apt-transport-https
+	sudo apt install apt-transport-https dotnet-sdk-3.1 aspnetcore-runtime-3.1 dotnet-runtime-3.1
 	sudo apt update
-	sudo apt install dotnet-sdk-3.1
-	sudo apt update
-	sudo apt install aspnetcore-runtime-3.1
-	sudo apt update
-	sudo apt install dotnet-runtime-3.1
 
 	echo 'STEP 6: Dart SDK'
 	sudo apt update
@@ -75,8 +83,31 @@ DOWNLOAD_SOFTWARES_WGET(){
 	sudo sh -c 'wget -qO- https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
 	sudo apt update
 	sudo apt install dart
-}
 
+	echo 'STEP 7: Nginx Web Server'
+	sudo apt install curl gnupg2 ca-certificates lsb-release
+	echo "deb http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \ | sudo tee /etc/apt/sources.list.d/nginx.list
+	curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
+	sudo apt-key fingerprint ABF5BD827BD9BF62
+	sudo apt update
+	sudo apt install nginx
+
+	echo 'STEP 8: MonoDevelop'
+	sudo apt install apt-transport-https dirmngr
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+	echo "deb https://download.mono-project.com/repo/ubuntu vs-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-vs.list
+	sudo apt update
+	sudo apt install monodevelop
+
+	echo 'STEP 9: Docker'
+	sudo apt-get update
+	sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo apt-key fingerprint 0EBFCD88
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+	sudo apt update
+	sudo apt install docker-ce docker-ce-cli containerd.io
+}
 
 UPDATE_AND_UPGRADE_SYSTEM
 INSTALL_SOFTWARE

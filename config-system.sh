@@ -24,6 +24,22 @@ INSTALL_SOFTWARE() {
 	sudo apt install gdebi
 	sudo apt install gimp
 	sudo apt install gnome-tweaks
+	sudo apt install gparted
+	sudo apt install gsmartcontrol
+	sudo apt install htop
+	sudo apt install handbrake
+	sudo apt install htop
+	sudo apt install synaptic
+	sudo apt install vlc
+	sudo apt install meld
+	sudo apt install gnome-system-monitor
+	sudo apt instal okular
+	sudo apt install openjdk-8-jdk openjdk-11-jdk
+	sudo apt install putty
+	sudo apt install qbittorrent
+	sudo apt install remmina
+	sudo apt install shotwell
+	sudo apt install transmissions
 	sudo apt install fish
 	sudo apt install virtualbox
 	sudo apt install wireshark

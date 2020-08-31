@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Method for update/upgrade of your system
+# Update your system
 UPDATE_AND_UPGRADE_SYSTEM() {
 	echo "STEP 1/3: UPDATE & UPGRADE YOUR SYSTEM"
 	sudo apt update
@@ -23,14 +23,31 @@ INSTALL_GOOGLE_CHROME(){
 }
 
 INSTALL_MONGODB(){
-	echo 'STEP 2: MongoDB'
-	wget -qO https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
-	sudo apt install gnupg
-	wget -qO https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
-	sudo touch /etc/apt/sources.list.d/mongodb-org-4.2.list
-	echo 'deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse' | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
-	sudo apt update
-	sudo apt install -y mongodb-org
+	if [ mongo --version == 4.4]
+	then
+		echo 'Latest version of MongoDB installed: 4.4'
+	elif [ mongo --version < 4.2]
+	then
+		echo 'STEP 2: MongoDB v.4.2'
+		wget -qO https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+		sudo apt install gnupg
+		wget -qO https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+		sudo touch /etc/apt/sources.list.d/mongodb-org-4.2.list
+		echo 'deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse' | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+		sudo apt update
+		sudo apt install -y mongodb-org
+	else
+		echo 'STEP 2: MongoDB v.4.4'
+		sudo apt install gnupg
+		wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+		echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+		sudo apt update
+		sudo apt install -y mongodb-org
+		echo 'mongodb-org hold' | sudo dpkg --set-selections && echo 'mongodb-org-server hold' | sudo dpkg --set-selections
+		echo 'mongodb-org-shell hold' | sudo dpkg --set-selections && echo 'mongodb-org-mongos hold' | sudo dpkg --set-selections
+		echo 'mongodb-org-tools hold' | sudo dpkg --set-selections
+		sudo service mongod start && sudo service mongod status && sudo service mongod restart
+	fi
 }
 
 INSTALL_SERVLERSS_FRAMEWORK(){
@@ -108,6 +125,13 @@ INSTALL_SKD_MAN_GRADLE_GROOVY_CONSOLE(){
 	sdk install gradle groovy
 }
 
+INSTALL_PGADMIN4(){
+	curl https://www.pgadmin.org/static/packges_pgadmin_org.pub | sudo apt-key add
+	sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+	sudo apt install pgadmin
+}
+
+
 INSTALL_NPM_PACKAGES(){
 	sudo npm install -g @angular/cli
 	sudo npm install -g @vue/cli
@@ -116,6 +140,24 @@ INSTALL_NPM_PACKAGES(){
 	sudo npm install -g typescript
 	sudo npm install -g webpack
 }
+
+INSTALL_FLUTTER(){
+	sudo apt install unzip xz-utils zip git curl
+	file="flutter_linux_1.20.2-stable.tar.xz"
+	if [ ! -f "$HOME/Scaricati/$file" ]
+	then
+    		wget https://storage.googleapis.com/flutter_infra/stable/linux/flutter_linux_1.20.2-stable.tar.xz
+		tar xf $PWD/$FILE
+	else
+		tar xf $PWD/$FILE
+		git clone https://github.com/flutter/flutter.git
+	fi
+}
+
+INSTALL_DENO(){
+	curl -fsSL https://deno.land/x/install/install.sh | sh
+}
+
 
 # Method for installation of all software
 INSTALL_SOFTWARE() {
@@ -165,17 +207,25 @@ INSTALL_SOFTWARE() {
 	sudo apt install xterm
 
 	echo $"\nSTEP 3/4: INSTALL SOFTWARE WITH SNAP"
+	sudo snap install anbox --devmode --beta
+	sudo snap install atom --classic
 	sudo snap install bitwarden
 	sudo snap install snap-store
 
-	echo $'\nAll software installed.\nPackages installed: '
-	echo $'1. audacity\n2. brasero\n3. cmatrix\n4. deepin-terminal\n5. deepin-image-viewer\n6. evolution\n7. filezilla\n8. fish\n9. geary\n10. gdebi'
-	echo $'11. gimp\n12. gnome-tweaks\n13. gparted\n14. gsmartcontrol\n15. grub-customizer\n16. gnome-system-monitor\n17. htop\n18. handbrake\n19. idle3\n20. meld'
-	echo $'12. mc\n13. net-tools\n14. okular\n15. openjdk-8-jdk openjdk-11-jdk\n16. php\n17. python3\n18.putty\n19. qbittorrent\n20. rpi-imager'
-	echo $'21. remmina\n22. synaptic\n23. samba\n24. shotwell\n25. snapd\n26. transmissions\n27. tree\n28. trash-cli\n29. vlc\n30. virtualbox'
-	echo $'31. vim\n32. vifm\n33. wireshark\n34. xterm' 
+	echo $'\nAll software installed.' 
 }
 
+CONFIGURATION_FILES(){
+	echo 'STEP 1: .bashrc config'
+        touch $HOME/.bashrc
+        echo "set linenumbers" > .bashrc
+	source $HOME/.bashrc
+
+	echo 'STEP 2: .nanorc config'
+	touch $HOME/.nanorc
+	echo "set linenumbers" > .nanorc
+	source $HOME/.nanorc
+}
 
 
 if [1 == 2]
@@ -195,4 +245,7 @@ then
 	INSTALL_VNC_VIEWER
 	INSTALL_SKD_MAN_GRADLE_GROOVY_CONSOLE
 	INSTALL_NPM_PACKAGES
+	echo 'Installation complete'
+
+	CONFIGURATION_FILES
 fi

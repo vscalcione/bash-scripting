@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # Update your system
-UPDATE_AND_UPGRADE_SYSTEM() {
-	echo "STEP 1/3: UPDATE & UPGRADE YOUR SYSTEM"
+update_and_upgrade_system() {
+	echo "STEP 1/20: UPDATE & UPGRADE YOUR SYSTEM"
 	sudo apt update
 	sudo apt upgrade
 }
 
-INSTALL_RABBITVCS() {
+install_rabbitvcs() {
+	echo 'STEP 4/20: Install RabbitVCS'
 	sudo chown -R $USER:$USER ~/.config/rabbitvcs
 	sudo add-apt-repository -r ppa:rabbitvcs/ppa
 	sudo apt update
@@ -16,13 +17,15 @@ INSTALL_RABBITVCS() {
 	sudo apt install git
 }
 
-INSTALL_GOOGLE_CHROME(){
+install_google_chrome(){
+	echo 'STEP 5/20: Install Google Chrome'
 	echo 'STEP 1: Google Chrome'
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo dpkg -i google-chrome-stable_current_amd64.deb
 }
 
-INSTALL_MONGODB(){
+install_mongodb(){
+	echo 'STEP 6/20: Install MongoDB'
 	if [ mongo --version == 4.4]
 	then
 		echo 'Latest version of MongoDB installed: 4.4'
@@ -50,13 +53,13 @@ INSTALL_MONGODB(){
 	fi
 }
 
-INSTALL_SERVLERSS_FRAMEWORK(){
-	echo 'STEP 3: Servless Framework'
+install_servless_framework(){
+	echo 'STEP 7/20: Install Servless Framework'
 	curl -o-  -L https://ssls.io/install | bash
 }
 
-INSTALL_BRAVE_WEB_BROWSER(){
-	echo "STEP 4: Brave Web Browser"
+install_brave_web_browser(){
+	echo "STEP 8/20: Install Brave Web Browser"
 	sudo apt install apt-transport-https curl
 	curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 	echo "deb [arch=amd64] https://brave-browser-apt-relase.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
@@ -64,8 +67,8 @@ INSTALL_BRAVE_WEB_BROWSER(){
 	sudo apt install brave-browser
 }
 
-INSTALL_DOCKER(){
-	echo "STEP 9: Docker"
+install_docker(){
+	echo "STEP 9/20: Install Docker"
 	sudo apt-get update
 	sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -75,15 +78,15 @@ INSTALL_DOCKER(){
 	sudo apt install docker-ce docker-ce-cli containerd.io
 }
 
-INSTALL_NETCORE_SDK_ASPNETCORE_RUNTIME_NETCORE_RUNTIME(){
-	echo "STEP 5: .NET Core SDK, ASP.NET Core Runtime, .NET Core Runtime"
+install_netcore_sdk_aspnetcore_runtime_netcore_runtime(){
+	echo "STEP 10/20: Install .NET Core SDK, ASP.NET Core Runtime, .NET Core Runtime"
 	sudo apt update
 	sudo apt install apt-transport-https dotnet-sdk-3.1 aspnetcore-runtime-3.1 dotnet-runtime-3.1
 	sudo apt update
 }
 
-INSTALL_DART_SDK(){
-	echo "STEP 6: Dart SDK"
+install_dart_sdk(){
+	echo "STEP 11/20: Install Dart SDK"
 	sudo apt update
 	sudo apt install apt-transport-https
 	sudo sh -c "wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -"
@@ -92,8 +95,8 @@ INSTALL_DART_SDK(){
 	sudo apt install dart
 }
 
-INSTALL_NGINX_WEBSERVER(){
-	echo "STEP 7: Nginx Web Server"
+install_nginx_webserver(){
+	echo "STEP 12/20: Install Nginx Web Server"
 	sudo apt install curl gnupg2 ca-certificates lsb-release
 	echo "deb http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \ | sudo tee /etc/apt/sources.list.d/nginx.list
 	curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
@@ -102,8 +105,8 @@ INSTALL_NGINX_WEBSERVER(){
 	sudo apt install nginx
 }
 
-INSTALL_MONODEVELOP(){
-	echo "STEP 8: MonoDevelop"
+install_monodevelop(){
+	echo "STEP 13/20: Install MonoDevelop"
 	sudo apt install apt-transport-https dirmngr
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 	echo "deb https://download.mono-project.com/repo/ubuntu vs-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-vs.list
@@ -111,28 +114,50 @@ INSTALL_MONODEVELOP(){
 	sudo apt install monodevelop
 }
 
-INSTALL_VNC_VIEWER(){
-	echo 'STEP 9: VNC Viewer'
+install_vnc_viewer(){
+	echo 'STEP 14/20: Install VNC Viewer'
 	wget https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.20.529-Linux-x64.deb
 	sudo dpkg -i VNC-Viewer-6.20.259-Linux-x64.deb
 }
 
-INSTALL_SKD_MAN_GRADLE_GROOVY_CONSOLE(){
-	echo 'STEP 10: SDKMAN, GROOVY'
+install_skdman_gradle_groovyconsole(){
+	echo 'STEP 15/20: Install SDKMAN, GROOVY'
 	curl -s "https://get.sdkman.io" | bash
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
 	sdk version
 	sdk install gradle groovy
 }
 
-INSTALL_PGADMIN4(){
+install_pgadmin4(){
+	echo 'STEP 16/20: Install PGADMIN4'
 	curl https://www.pgadmin.org/static/packges_pgadmin_org.pub | sudo apt-key add
 	sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 > /etc/apt/sources.list.d/pgadmin4.list && apt update'
 	sudo apt install pgadmin
 }
 
+install_flutter(){
+	echo 'STEP 17/20: Install Flutter SDK'
+	file="flutter_linux_1.20.2-stable.tar.xz"
+	if [ ! -f "$HOME/Scaricati/$file" ]
+	then
+		wget https://storage.googleapis.com/flutter_infra/stable/linux/flutter_linux/1.20.2-stable.tar.xz
+		tar xf $FILE
+	else
+		tar xf $FILE
+		git clone https://github.com/flutter/flutter.git
+	fi
+}
 
-INSTALL_NPM_PACKAGES(){
+install_deno(){
+	echo 'STEP 18/20: Install Deno'
+	curl -fsSL https://deno.land/x/install/install.sh | sh
+}
+
+install_cargo_rust(){
+	
+}
+
+install_npm_packages(){
 	sudo npm install -g @angular/cli
 	sudo npm install -g @vue/cli
 	sudo npm install -g expo-cli
@@ -141,27 +166,20 @@ INSTALL_NPM_PACKAGES(){
 	sudo npm install -g webpack
 }
 
-INSTALL_FLUTTER(){
-	sudo apt install unzip xz-utils zip git curl
-	file="flutter_linux_1.20.2-stable.tar.xz"
-	if [ ! -f "$HOME/Scaricati/$file" ]
-	then
-    		wget https://storage.googleapis.com/flutter_infra/stable/linux/flutter_linux_1.20.2-stable.tar.xz
-		tar xf $PWD/$FILE
-	else
-		tar xf $PWD/$FILE
-		git clone https://github.com/flutter/flutter.git
-	fi
+install_snx_reply_vpn(){
+	wget -O $HOME/Scaricati/snx_install.sh https://globalssl.enel.com/CSHELL/snx_install.sh
+	sudo chmod +x snx_install.sh
+	./snx_install
 }
 
-INSTALL_DENO(){
-	curl -fsSL https://deno.land/x/install/install.sh | sh
+install_rust(){
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	## add rust path on .bashrc file and source this file
 }
-
 
 # Method for installation of all software
-INSTALL_SOFTWARE() {
-	echo $"\nSTEP 2/3: INSTALL SOFTWARE WITH APT"
+install_software() {
+	echo $"\nSTEP 2/20: INSTALL SOFTWARE WITH APT"
 	sudo apt install audacity
 	sudo apt install brasero
 	sudo apt install cmatrix
@@ -205,8 +223,9 @@ INSTALL_SOFTWARE() {
 	sudo apt install vifm
 	sudo apt install wireshark
 	sudo apt install xterm
+	
 
-	echo $"\nSTEP 3/4: INSTALL SOFTWARE WITH SNAP"
+	echo $"\nSTEP 3/20: INSTALL SOFTWARE WITH SNAP"
 	sudo snap install anbox --devmode --beta
 	sudo snap install atom --classic
 	sudo snap install bitwarden
@@ -215,37 +234,45 @@ INSTALL_SOFTWARE() {
 	echo $'\nAll software installed.' 
 }
 
-CONFIGURATION_FILES(){
-	echo 'STEP 1: .bashrc config'
+configuration_files(){
+	echo 'STEP 1/3: .bashrc config'
         touch $HOME/.bashrc
         echo "set linenumbers" > .bashrc
 	source $HOME/.bashrc
 
-	echo 'STEP 2: .nanorc config'
+	echo 'STEP 2/3: .nanorc config'
 	touch $HOME/.nanorc
 	echo "set linenumbers" > .nanorc
 	source $HOME/.nanorc
-}
 
+	echo 'STEP 3/3: .bashrc config (exported paths)'
+	echo -e '' >> $HOME/.bashrc
+
+	echo 'Obtain list of all installed packages'
+	dkpg -l > software_backup_1.txt && cut -d ' ' -f 3 softwares_backup_1.txt > test1.txt
+}
 
 if [1 == 2]
 then
-	UPDATE_AND_UPGRADE_SYSTEM
-	INSTALL_SOFTWARE
-	INSTALL_RABBITVCS
-	INSTALL_GOOGLE_CHROME
-	INSTALL_MONGODB
-	INSTALL_SERVLERSS_FRAMEWORK
-	INSTALL_BRAVE_WEB_BROWSER
-	INSTALL_DOCKER
-	INSTALL_NETCORE_SDK_ASPNETCORE_RUNTIME_NETCORE_RUNTIME
-	INSTALL_DART_SDK
-	INSTALL_NGINX_WEBSERVER
-	INSTALL_MONODEVELOP
-	INSTALL_VNC_VIEWER
-	INSTALL_SKD_MAN_GRADLE_GROOVY_CONSOLE
-	INSTALL_NPM_PACKAGES
+	update_and_upgrade_system
+	install_software
+	install_rabbitvcs
+	install_google_chrome
+	install_mongodb
+	install_servless_framework
+	install_brave_web_browser
+	install_docker
+	install_netcore_sdk_aspnetcore_runtime_netcore_runtime
+	install_dart_sdk
+	install_nginx_webserver
+	install_monodevelop
+	install_vnc_viewer
+	install_skdman_gradle_groovyconsole
+	install_pgadmin4
+	install_flutter
+	install_deno
+	install_npm_packages
 	echo 'Installation complete'
 
-	CONFIGURATION_FILES
+	configuration_files
 fi

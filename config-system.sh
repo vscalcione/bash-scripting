@@ -72,7 +72,8 @@ install_software() {
 	sudo apt install qtcreator
 	sudo apt install qt5-default
 	sudo apt install build-essentials
-
+	sudo apt install sqlitebrowser
+	
 	echo $"\nSTEP 3/20: INSTALL SOFTWARE WITH SNAP"
 	sudo snap install anbox --devmode --beta
 	sudo snap install atom --classic
@@ -86,7 +87,9 @@ install_software() {
 	sudo snap install ksnip
 	sudo snap install mailspring
 	sudo snap install telegram-desktop
-
+	sudo snap install vscode
+	sudo snap install vscode-insiders
+	sudo snap install slack --classic
 	echo $'\nAll software installed.' 
 }
 
@@ -176,6 +179,12 @@ install_docker(){
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 	sudo apt update
 	sudo apt install docker-ce docker-ce-cli containerd.io
+	
+	echo 'Run Docker with no root user authorization'
+	sudo groupadd docker
+	sudo usermod -aG docker $USER
+	newgrp docker
+	docker run hello-world
 }
 
 install_netcore_sdk_aspnetcore_runtime_netcore_runtime(){
@@ -382,6 +391,12 @@ install_github_desktop(){
 	sudo apt install github-desktop
 }
 
+install_yarn(){
+	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+	sudo apt update
+	sudo apt install yarn
+}
 
 if [1 == 2]
 then

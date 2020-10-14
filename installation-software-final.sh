@@ -55,6 +55,7 @@ update_and_install_software() {
 		sudo apt install trash-cli -y
 		sudo apt install vlc -y
 		sudo apt install virtualbox -y
+		sudo apt install ghostscript -y
 
 		sudo apt install openconnect network-manager-openconnect network-manager-openconnect-gnome -y
 		
@@ -135,6 +136,19 @@ install_wordpress(){
 	sudo apt install wordpress php libapache2-mod-php mysql-server php-mysql
 }
 
+install_google_chrome(){
+	URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+	FILENAME_PATH="$HOME/Scaricati/google-chrome-stable_current_amd64.deb"
+	sudo wget -O $FILENAME_PATH $LINK
+	sudo dpkg -i $FILENAME_PATH
+}
+
+install_opera_browser(){
+	URL="https://download.opera.com/download/get/?partner=www&opsys=Linux"
+	FILENAME_PATH="$HOME/Scaricati/opera-stable_amd64.deb"
+	sudo wget -O $FILENAME_PATH $URL
+	sudo dpkg -i $FILENAME_PATH
+}
 
 TITLE="Installation software $(lsb_release -ds || cat /etc/*release || uname -om)"
 
@@ -150,4 +164,7 @@ if [[ "$?" -eq 0 ]]; then
 	install_rabbitvcs
 	install_mongodb
 	install_netcore_tools
+	install_nvm
+	install_google_chrome
+	install_opera_browser
 fi

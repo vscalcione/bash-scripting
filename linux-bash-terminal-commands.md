@@ -58,16 +58,14 @@ $ df -h                                         # Print free space on devices
 $ du -hs                                        # Print occupated space of a directory
 $ useradd ${username} -d ${/path/of/home} \     # Create ad user with username=${username}, home=${/path/of/home},
   -s ${path/of/shell} -G {group_name} \         # shell=${path/of/shell}, Group=${group_name}
-  -g {default_group-name}			# Default_group={default_group_name}
+  -g {default_group-name}			            # Default_group={default_group_name}
 
-$ userdel -r ${user_name}			# Delete a user
-$ groupadd ${group_name}			# Create a group with name ${group_name}
-$ groupdel ${group_name}			# Delete a group with name ${group_name}
-$ passwd ${user_name} 				# Change password of user
-$ groups					# List of groups
-$ chmod						# File/Directory permission modification
-$ chown						# File/directory owner modification
-$ chgrp						# File/directory group assignment changing
+$ userdel -r ${user_name}			            # Delete a user
+$ groupadd ${group_name}			            # Create a group with name ${group_name}
+$ groupdel ${group_name}			            # Delete a group with name ${group_name}
+$ passwd ${user_name} 				            # Change password of user
+$ groups					                    # List of groups
+$ chmod						                    # File/Directory permission modification
+$ chown						                    # File/directory owner modification
+$ chgrp						                    # File/directory group assignment changing
 ```
-
-

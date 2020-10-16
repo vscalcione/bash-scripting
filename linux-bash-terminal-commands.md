@@ -64,6 +64,10 @@ $ userdel -r ${user_name}			# Delete a user
 $ groupadd ${group_name}			# Create a group with name ${group_name}
 $ groupdel ${group_name}			# Delete a group with name ${group_name}
 $ passwd ${user_name} 				# Change password of user
+$ groups					# List of groups
+$ chmod						# File/Directory permission modification
+$ chown						# File/directory owner modification
+$ chgrp						# File/directory group assignment changing
 ```
 
 

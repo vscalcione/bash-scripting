@@ -52,6 +52,10 @@ $ lsmod                                         # List of all devices and driver
 $ lsmod | grep pcs*                             # Get a filtered list of all devices that named 'pcs*'
 $ sudo rm mod {deviceName}                      # Delete a device and its drivers from the machine
 $ sudo dpkg -i {packageName.deb}                # Install a debian package
+$ sudo shutdown -h now                          # Shutdown your machine
+$ ps | awk {print $1}                           # Print PID of all execution process
+$ df -h                                         # Print free space on devices
+$ du -hs                                        # Print occupated space of a directory
 ```
 
 

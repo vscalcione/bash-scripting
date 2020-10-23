@@ -157,8 +157,8 @@ install_composer_php_package_manager() {
 	sudo apt install curl php-cli php-mbstring git unzip -y
 	curl -sS https://getcomposer.org/installer -o $COMPOSER_SETUP
 	HASH=$HASH
-	php -r "if (hash_file('SHA384', '$COMPOSE_SETUP') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('$COMPOSE_SETUPp'); } echo PHP_EOL;"
-	sudo php $COMPOSE_SETUP --install-dir=/usr/local/bin --filename=composer
+	php -r "if (hash_file('SHA384', '$COMPOSER_SETUP') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('$COMPOSER_SETUP'); } echo PHP_EOL;"
+	sudo php $COMPOSER_SETUP --install-dir=/usr/local/bin --filename=composer
 }
 
 TITLE="Installation software $(lsb_release -ds || cat /etc/*release || uname -om)"

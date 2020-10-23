@@ -178,5 +178,5 @@ if [[ "$?" -eq 0 ]]; then
 	install_nvm
 	install_google_chrome
 	install_opera_browser
-	install_composer_php_package_manager()
+	install_composer_php_package_manager
 fi

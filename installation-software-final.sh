@@ -150,6 +150,17 @@ install_opera_browser(){
 	sudo dpkg -i $FILENAME_PATH
 }
 
+install_composer_php_package_manager() {
+	COMPOSER_SETUP=composer-setup.php
+	HASH=c31c1e292ad7be5f49291169c0ac8f683499edddcfd4e42232982d0fd193004208a58ff6f353fde0012d35fdd72bc394
+	sudo apt update
+	sudo apt install curl php-cli php-mbstring git unzip -y
+	curl -sS https://getcomposer.org/installer -o $COMPOSER_SETUP
+	HASH=$HASH
+	php -r "if (hash_file('SHA384', '$COMPOSE_SETUP') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('$COMPOSE_SETUPp'); } echo PHP_EOL;"
+	sudo php $COMPOSE_SETUP --install-dir=/usr/local/bin --filename=composer
+}
+
 TITLE="Installation software $(lsb_release -ds || cat /etc/*release || uname -om)"
 
 whiptail --title "Installation software $TITLE" \
@@ -167,4 +178,5 @@ if [[ "$?" -eq 0 ]]; then
 	install_nvm
 	install_google_chrome
 	install_opera_browser
+	install_composer_php_package_manager()
 fi

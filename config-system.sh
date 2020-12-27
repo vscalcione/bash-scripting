@@ -90,6 +90,8 @@ install_software() {
 	sudo snap install vscode
 	sudo snap install vscode-insiders
 	sudo snap install slack --classic
+	sudo snap install emacs --classic	
+
 	echo $'\nAll software installed.' 
 }
 

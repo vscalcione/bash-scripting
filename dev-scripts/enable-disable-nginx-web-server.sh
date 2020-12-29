@@ -23,23 +23,23 @@ if [[ "$?" -eq 0 ]]; then
         do
             CHOICE=$(whiptail --title "Menu" --menu "Choose an option" 25 78 16 \
                 "<-- Back" "Return to the main menu." \
-                "Install NGINX" "       Install NGINX HTTP Server on your machine." \
-                "Enable NGINX"  "       Enable NGINX on your machine." \
-                "Disable NGINX" "       Disable NGINX on your machine." 3>&2 2>&1 1>&3)
+                "1)" " Install NGINX HTTP Server on your machine." \
+                "2)" " Enable NGINX on your machine." \
+                "3)" " Disable NGINX on your machine." 3>&2 2>&1 1>&3)
 
             OPTION=$(echo $CHOICE | tr '[:upper]' '[:lower]' | sed 's/ //g')
             case "$OPTION" in
-                "Install NGINX")
+                "1)")
 					install_nginx
 				;;
-				"Enable NGINX")
+				"2)")
                     sudo sytemctl enable nginx
                     echo 'Sleeping 5 seconds before reloading' && sleep 5
 				;;
-				"Disable NGINX")
-					sudo sytemctl disable nginx
-					echo 'Sleeping 5 seconds beofre reloading\n' &&
-					sleep 5
+				"3)")
+                    sudo systemctl disable nginx
+					echo 'Sleeping 5 seconds beofre reloading\n'
+                    sleep 5
 				;;
 				*)
 				 	whiptail --title "Menu" --msgbox "Goodbye $USER" $VMOD $HMOD

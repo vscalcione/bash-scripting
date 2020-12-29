@@ -2,7 +2,7 @@
 
 install_nginx() {
     sudo apt update
-    
+    sudo apt install nginx -y
 }
 
 logger "$0"
@@ -29,14 +29,14 @@ if [[ "$?" -eq 0 ]]; then
 
             OPTION=$(echo $CHOICE | tr '[:upper]' '[:lower]' | sed 's/ //g')
             case "$OPTION" in
-                "1)")
+                "Install NGINX")
 					install_nginx
 				;;
-				"2)")
+				"Enable NGINX")
                     sudo sytemctl enable nginx
                     echo 'Sleeping 5 seconds before reloading' && sleep 5
 				;;
-				"3)")
+				"Disable NGINX")
 					sudo sytemctl disable nginx
 					echo 'Sleeping 5 seconds beofre reloading\n' &&
 					sleep 5

@@ -342,4 +342,4 @@ then
 	echo 'Installation complete'
 
 	configuration_files
-:fi
+fi
